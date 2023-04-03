@@ -17,8 +17,12 @@ public class board1 {
     public board1(int board_size) {
         this.board_size = board_size ; 
         this.map = new int [board_size][board_size];
-        setganj(map);
-        //setBoard(map, board_size, 2);
+        map[board_size/2][board_size/2] = 9 ;//set ghale
+        setganj(map);//set ganj [10..17]
+        setBoard(map, 5, 2);//set divar
+        setBoard(map, 5, 3);//set market
+        setBoard(map, board_size, 4);//set gom shode
+        setBoard(map, 3, 5);//set tale
         
     }
     void setBoard(int [][] tmpMap,int howMany,int num){
@@ -57,41 +61,5 @@ public class board1 {
                 }
             }
         }
-        //tmp1 = (int)(Math.random()*(this.board_size/2));
-        //tmp2 = (int)(Math.random()*(this.board_size/2));
-        //tmpMap [tmp1][tmp2] = 10;
-
-
-        //tmp1 = (int)(Math.random()*(this.board_size/2 +1));
-        //tmp2 = (int)(Math.random()*(this.board_size/2));
-        //tmpMap [tmp1+this.board_size/2][tmp2] = 12;
-        
-        
-        //tmp1 = (int)(Math.random()*(this.board_size/2 +1));
-        //tmp2 = (int)(Math.random()*(this.board_size/2 +1));
-        //tmpMap [tmp1+this.board_size/2][tmp2+this.board_size/2] = 14;
-        
-
-        //tmp1 = (int)(Math.random()*(this.board_size/2));
-        //tmp2 = (int)(Math.random()*(this.board_size/2 +1));
-        //tmpMap [tmp1][tmp2+this.board_size/2] = 16;
-
-        ////--------------------------------------------------
-        
-        //tmp1 = (int)(Math.random()*(this.board_size/2));
-        //tmp2 = (int)(Math.random()*(this.board_size/2));
-        //tmpMap [tmp1][tmp2] = 11;
-
-        //tmp1 = (int)(Math.random()*(this.board_size/2 +1));
-        //tmp2 = (int)(Math.random()*(this.board_size/2));
-        //tmpMap [tmp1+this.board_size/2][tmp2] = 13;
-
-        //tmp1 = (int)(Math.random()*(this.board_size/2 +1));
-        //tmp2 = (int)(Math.random()*(this.board_size/2 +1));
-        //tmpMap [tmp1+this.board_size/2][tmp2+this.board_size/2] = 15;
-
-        //tmp1 = (int)(Math.random()*(this.board_size/2));
-        //tmp2 = (int)(Math.random()*(this.board_size/2 +1));
-        //tmpMap [tmp1][tmp2+this.board_size/2] = 17;
     }
 }
