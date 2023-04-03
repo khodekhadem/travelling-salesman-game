@@ -11,10 +11,10 @@
  * 
  * 
  */
-public class board1 {
+public class board {
     int board_size ;
     int [][]map;
-    public board1(int board_size) {
+    public board(int board_size) {
         this.board_size = board_size ; 
         this.map = new int [board_size][board_size];
         map[board_size/2][board_size/2] = 9 ;//set ghale
