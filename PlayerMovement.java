@@ -5,30 +5,36 @@ import java.awt.event.*;
 public class PlayerMovement extends JFrame implements KeyListener {
     private ImageIcon playerImage;
     private JLabel playerLabel;
+    private ImageIcon castleImage;
+    private JLabel castleLabel;
+
+    //private ImageIcon wallImage;
+    private JLabel[] wallLabels;
+
     private JLabel[] imageLabels;
     private int playerX, playerY;
     private int abad;
     
     public PlayerMovement(int abad) {
         super("Player Movement");
-        this.abad = abad ;
-        // Load player image
-        ImageIcon[] images = new ImageIcon[abad*abad];
-        for (int i = 0; i < abad*abad; i++) {
-            images[i] = new ImageIcon("ground.png");
-        }
+         this.abad = abad ;
+        // // Load player images
+         ImageIcon[] walls = new ImageIcon[5];
+         for (int i = 0; i < 5; i++) {
+             walls[i] = new ImageIcon("wall.png");
+         }
+        
+         wallLabels = new JLabel[5];
+         for (int i = 0; i < 5; i++) {
+             wallLabels[i] = new JLabel(walls[i]);
+             //imageLabels[i].addMouseListener(this);
+         }
+         for (int i = 0; i < 5; i++) {
+                 wallLabels[i].setBounds(i*50,50,50,50);
+         }
+        InsertGrounds(abad);
 
-        imageLabels = new JLabel[abad*abad];
-        for (int i = 0; i < abad*abad; i++) {
-            imageLabels[i] = new JLabel(images[i]);
-            //imageLabels[i].addMouseListener(this);
-        }
-        for (int i = 0; i < abad; i++) {
-            for (int j = 0; j < abad; j++) {
-                    
-                imageLabels[(i*abad) + j].setBounds(i*50,j*50,50,50);
-            }
-        }
+
         playerImage = new ImageIcon("player.png");
         
         // Create player label
@@ -36,12 +42,21 @@ public class PlayerMovement extends JFrame implements KeyListener {
         playerY = 0;
         playerLabel = new JLabel(playerImage);
         playerLabel.setBounds(playerX, playerY, playerImage.getIconWidth(), playerImage.getIconHeight());
+
+        //add castle image
+        castleImage = new ImageIcon("castle.jpg");
+        castleLabel = new JLabel(castleImage);
+        castleLabel.setBounds((abad/2)*50, (abad/2)*50, 50,50);
         
         // Add player label to content pane
         Container c = getContentPane();
         c.setLayout(null);
         c.add(playerLabel);
+        c.add(castleLabel);
         
+        for (int i = 0; i < 5; i++) {
+            c.add(wallLabels[i]);
+        }
         //c.setLayout(null);
         for (int i = 0; i < abad*abad; i++) {
             c.add(imageLabels[i]);
@@ -53,6 +68,26 @@ public class PlayerMovement extends JFrame implements KeyListener {
         
         // Add key listener
         addKeyListener(this);
+    }
+    void InsertGrounds(int tmpabad){
+
+        ImageIcon[] images = new ImageIcon[tmpabad*tmpabad];
+        for (int i = 0; i < tmpabad*tmpabad; i++) {
+            images[i] = new ImageIcon("ground.png");
+        }
+
+        imageLabels = new JLabel[tmpabad*tmpabad];
+        for (int i = 0; i < tmpabad*tmpabad; i++) {
+            imageLabels[i] = new JLabel(images[i]);
+            //imageLabels[i].addMouseListener(this);
+        }
+        for (int i = 0; i < tmpabad; i++) {
+            for (int j = 0; j < tmpabad; j++) {
+                    
+                imageLabels[(i*tmpabad) + j].setBounds(i*50,j*50,50,50);
+            }
+        }
+
     }
     
     // KeyListener methods
