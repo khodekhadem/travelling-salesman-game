@@ -68,9 +68,7 @@ public class PlayerMovement extends JFrame implements KeyListener {
                 playerX -= 50;
                 break;
             case KeyEvent.VK_RIGHT:
-                if(playerX<150){
-                    playerX += 50;
-                }
+                playerX += 50;
                 break;
         }
         playerLabel.setBounds(playerX, playerY, playerImage.getIconWidth(), playerImage.getIconHeight());
