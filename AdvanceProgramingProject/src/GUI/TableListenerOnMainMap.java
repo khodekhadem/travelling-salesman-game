@@ -128,6 +128,7 @@ public class TableListenerOnMainMap implements ActionListener {
     }
 
     private void showPlayInfoPlayer2() {
+        players[1].setPower((int)(Math.random() * 5 + 1));
         powPlayer2.setText("pow: " + players[1].getPower());
         powPlayer2.setFont(new Font("Cooper Black", Font.BOLD, 25));
         namePlayer2.setText(players[1].getName());
